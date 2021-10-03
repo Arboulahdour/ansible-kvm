@@ -1,0 +1,4 @@
+---
+host_ip_address: 192.168.122.1
+host_user: abderrahmane
+host_user_pass: "{{ vault_host_user_pass }}"

@@ -1,0 +1,25 @@
+---
+- name: Get Running Configuration
+  hosts: kvm_host
+  become: true
+  gather_facts: false
+
+  tasks:
+
+    - name: Create A New KVM VM
+      shell: "virt-install --name {{ vm_name }} \
+                           --vcpus {{ vm_vcpu }} \
+                           --memory {{ vm_memory }} \
+                           --cdrom {{ vm_media }} \
+                           --disk size={{ vm_disk_size }} \
+                           --os-type {{ vm_os_type }} \
+                           --os-variant {{ vm_os_variant }}"
+
+    # - name: List All VMs
+    #   community.libvirt.virt:
+    #     command: list_vms
+    #   register: all_vms
+    
+    # - name: Display The KVM VMs
+    #   debug:
+    #     msg:  "All KVM VMs : {{ all_vms['list_vms'] }}"

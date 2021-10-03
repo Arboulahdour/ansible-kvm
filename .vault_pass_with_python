@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+
+#import os
+#print os.environ['VAULT_PASSWORD']
+
+#chmod +x .vault_pass
+#export VAULT_PASSWORD=my_vault_password

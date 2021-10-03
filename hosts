@@ -1,0 +1,15 @@
+[kvm_host:vars]
+ansible_host={{ host_ip_address }}
+ansible_ssh_user={{ host_user }}
+ansible_ssh_pass={{ host_user_pass }}
+ansible_become_password={{ host_user_pass }}
+vm_name=ubuntu-18.04-vm
+vm_vcpu=1
+vm_memory=1024
+vm_media=/home/abderrahmane/PXE_NETWORK_BOOT/ubuntu-18.04.3/ubuntu-18.04.3-2021.10.03-server-amd64.iso
+vm_disk_size=10
+vm_os_type=linux
+vm_os_variant=ubuntu18.04
+
+[kvm_host]
+192.168.122.1
