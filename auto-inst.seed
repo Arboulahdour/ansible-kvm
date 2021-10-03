@@ -33,8 +33,6 @@ d-i passwd/username string ubuntu
 d-i passwd/user-password password ubuntu
 d-i passwd/user-password-again password ubuntu
 d-i user-setup/allow-password-weak boolean true
-
-# Set to true if you want to encrypt the first user's home directory.
 d-i user-setup/encrypt-home boolean false
 
 ### Clock and time zone setup
@@ -42,32 +40,21 @@ d-i	clock-setup/utc-auto	boolean true
 d-i clock-setup/ntp boolean true
 
 ### Partitioning
-# !!!DANGER don't use this without knowing what you are doing!!!
-# comment out this block it you want the installer to ask about the 
-# partitioning, which is much safer!
-
 d-i partman/unmount_active boolean true
 d-i partman-auto/init_automatically_partition select biggest_free
 d-i partman-auto/method string regular
 d-i partman-auto/choose_recipe select atomic
 d-i partman/default_filesystem string ext3
-
-# This makes partman automatically partition without confirmation, provided
 d-i partman-partitioning/confirm_write_new_label boolean true
 d-i partman/choose_partition select finish
 d-i partman/confirm boolean true
 d-i partman/confirm_nooverwrite boolean true
 
 # The kernel image (meta) package to be installed;
-#d-i base-installer/kernel/image string linux-generic
 d-i  base-installer/kernel/altmeta   string hwe-18.04
 
 ### Package selection
-# Install the Ubuntu Server seed.
 tasksel tasksel/first multiselect openssh-server
-
-# Individual additional packages to install
-#d-i pkgsel/include string build-essential dkms
 
 # Only install basic language packs. Let tasksel ask about tasks.
 d-i	pkgsel/language-pack-patterns	string
